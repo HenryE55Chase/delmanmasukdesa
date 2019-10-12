@@ -1,0 +1,62 @@
+#my-modals{position:fixed;top:0px;bottom:0;left:0;right:0;background:rgba(0,0,0,0.8);}
+.modals-open .modals{overflow-x:hidden;overflow-y:auto;}
+fade.in{opacity:1;}
+.modals{position:fixed;z-index:1050;overflow:hidden;-webkit-overflow-scrolling:touch;outline:0;}
+.fade{opacity:1;-webkit-transition:opacity .15s linear;-o-transition:opacity .15s linear;transition:opacity .15s linear;}
+.modals-dialog{
+	margin:0 auto;vertical-align:middle;position:relative;
+	position: fixed;
+  top: 50%;
+  left: 50%;
+  /* bring your own prefixes */
+  transform: translate(-50%, -50%);
+	}
+.modals-content{position:relative;background-color:#fff;-webkit-background-clip:padding-box;background-clip:padding-box;border:1px solid #999;border:1px solid rgba(0,0,0,.2);border-radius:6px;outline:0;-webkit-box-shadow:0 3px 9px rgba(0,0,0,.5);box-shadow:0 3px 9px rgba(0,0,0,.5);}
+.modals-header{border-bottom:1px solid #e5e5e5;}
+.modals-title{text-align:center;font-wieght:bold;margin:0;}
+.modals-body{position:relative;padding:15px;}
+.row{margin-right:-15px;margin-left:-15px;}
+.text-center{text-align:center;font-size:15px;}
+#coverImage{vertical-align:middle;border:0;border:1px solid gray;box-shadow:10px 10px 5px grey;max-height:220px;max-width:400px;}
+.btn-info{color:#fff;background-color:#5bc0de;border-color:#46b8da;}
+.btn{display:inline-block;text-decoration:none;padding:6px 12px;margin-bottom:0;font-size:14px;font-weight:400;line-height:1.42857143;text-align:center;white-space:nowrap;vertical-align:middle;-ms-touch-action:manipulation;touch-action:manipulation;cursor:pointer;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;background-image:none;border:1px solid transparent;border-top-color:transparent;border-right-color:transparent;border-bottom-color:transparent;border-left-color:transparent;border-radius:4px;}
+@media only screen and (min-width: 320px) and (orientation: portrait) {
+    .modals-dialog {
+        width:300px;
+    }
+	#coverImage {
+		width:60%;
+	}
+	.text-center{
+		word-wrap: break-word;
+	}
+}
+@media only screen and (min-width: 480px) and (orientation: landscape) {
+    .modals-dialog {
+        width:320px;
+    }
+	#coverImage {
+		width:40%;
+	}
+	.modals-body {
+		padding: 0;
+	}
+	.text-center{
+		margin:0;
+		word-wrap: break-word;
+	}
+}
+@media only screen and (min-width: 700px) {
+    .modals-dialog {
+        width:600px;
+    }
+	.modals-header{
+		padding:15px;
+	}
+	#coverImage {
+		width:100%;
+	}
+	.modals-header{
+		line-height:1.2em;
+	}
+}

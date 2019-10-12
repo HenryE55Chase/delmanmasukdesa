@@ -1,0 +1,48 @@
+RewriteEngine On
+RewriteBase /
+RewriteCond %{HTTP_HOST} ^www\.(.*)$ [NC]
+RewriteRule ^(.*)$ http://%1/$1 [R=301,L]
+RewriteRule ^robots.txt$ robots.php [L]
+#PDF MOD Rewrite
+RewriteRule ^(.*)\.pdf$ pdf-not-exists.php?keywords=$1 [L,QSA]
+
+#sitemap pdf
+RewriteRule ^sitemap.xml$ xml-sitemap-index.php [L]
+RewriteRule ^pdf-index/(.*)\.xml$ xml-sitemap.php?file=$1.txt [L]
+
+RewriteRule ^post/(.*)?$ single.php?q=$1
+RewriteRule ^post/(.*)\.html$ single.php?q=$1 [L,QSA]
+RewriteRule ^category/(.*)?$ galeri.php?q=$1
+RewriteRule ^resume/(.*)?$ single.php?q=$1
+RewriteRule ^pin/(.*)?$ single.php?q=$1
+
+RewriteRule ^privacy?$ privacy.php
+RewriteRule ^contact?$ contact.php
+RewriteRule ^register?$ register.php
+ErrorDocument 404 /
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+#Sitemap
+RewriteRule ^map(.*)\.xml$ xml-sitemap-index.php [L]
+RewriteRule ^sitemap.xml$ xml-sitemap-index.php [L]
+RewriteRule map.xml$ xml-sitemap-index.php [L]
+RewriteRule ^sitemap-post/(.*)\.xml$ xml-sitemap.php?file=$1.txt [L]
+
+#Sitemap Index ++
+RewriteRule ^sitemap-pdf.xml$ xml-sitemap-index-pdf.php [L]
+RewriteRule ^pdf-post/(.*)\.xml$ xml-sitemap-pdf.php?file=$1.txt [L]
+RewriteRule ^pdf-map(.*)\.xml$ xml-sitemap-index-pdf.php [L]
+
+#sitemap ++
+RewriteRule ^book(.*)\.xml$ xml-sitemap-index.php [L]
+
+#rss
+RewriteRule ([0-9]+)rss$ indexer.php?url=$1 [L]
+RewriteRule indexer$ superindexer.php?url=$1 [L]
+
+
+
+RewriteRule feed(.*)$ feed.php?url=$1 [L]
+
